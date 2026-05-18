@@ -217,7 +217,7 @@ export const saveQuizAttempt = createServerFn({ method: "POST" })
     const { error } = await supabase.from("quiz_attempts").insert({
       material_id: data.materialId,
       user_id: userId,
-      questions: data.questions,
+      questions: data.questions as never,
       score: data.score,
       total: data.total,
     });
